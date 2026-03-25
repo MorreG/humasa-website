@@ -1,0 +1,9 @@
+@media (min-width: 48em) {
+    .one-container.two {
+        flex-direction: row-reverse;
+    }
+
+    .one-container-image__image.two {
+        object-position: 37% 50%;
+    }
+}

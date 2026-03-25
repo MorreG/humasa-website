@@ -1,0 +1,524 @@
+.section-one {
+    display: flex;
+    flex-direction: column;
+    gap: 10em;
+    overflow: hidden;
+    max-width: 90em;
+    margin: 0 auto;
+}
+
+/*
+.one-container {
+    max-width: 100%;
+    overflow: hidden;
+}*/
+/*
+.one-container-image {
+    overflow: hidden;
+    width: 100%;
+}*/
+
+.one-container-image__image {
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+
+.one-container-content {
+    margin-top: 2em;
+    color: white;
+    padding: var(--edge-pd);
+    font-size: var(--fs-body);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+@media (min-width: 48em) {
+    .section-one {
+        display: flex; /* 1 Det här sätter sektionen till flex */
+        justify-content: center; /* 2 Det här centrerar all content i sektionen vågrätt */
+        align-items: center; /* 3 Det här centrerar all content i sektionen lodrätt */
+        /*height: 40em; *//* Det här gör att sektionen tar upp hela skärmen [bla för demonstration] */
+        /* width: 100%; *//* Det här gör att sektionen tar upp hela skärmen [bla för demonstration] */
+        overflow: hidden;
+    }
+
+    .one-container { /* Denna container håller allt vi kommer ha i sektionenen */
+        display: flex; /* Sätter flex på sektionen för att rada upp både bild och text brevid varandra */
+        flex-direction: row; /* Behövs egentligen inte då det är standardvalue men för tydlighetens skull */
+        padding: var(--edge-pd);
+        /*padding: 10em 10em;*//* TOP/BOTTOM, LEFT/RIGHT. Sätter padding på båda sidorna av containern */
+        gap: 2em; /* Sätter ett mellanrum mellan de olika divvarna i containern, alltså ett mellanrum mellan bild & text */
+        height: 40em;
+    }
+
+    .one-container-image { /* Containern som bilden hålls innuti */
+        flex: 1; /* Då paragrafen har en redan definierad max vidd sätter vi bilden till att ta upp mer plats */
+        object-fit: cover;
+        object-position: center;
+        padding: 0;
+    }
+
+    .one-container-content { /* Den här containern håller texten, P */
+        flex: 1; /* Den här går tillbaka till display flex i .one-container, Ger texten ~33% av utrymmet */
+        justify-content: center;
+        margin-top: 0;
+    }
+
+}
+
+@media (min-width: 64em) {
+    .one-container-content {
+        gap: 1.5em;
+    }
+}
+
+@media (min-width: 80em) {
+    .one-container-image__image {
+        object-position: bottom;
+    }
+
+    .one-container-content {
+        gap: 2em;
+    }
+}
+
+@media (min-width: 96em) {
+    .one-container-content {
+        gap: 2.5em;
+    }
+}
+
+@media (min-width: 112em) {
+    .one-container-content {
+        gap: 3em;
+    }
+}
+
+@media (min-width: 128em) {
+    .one-container-content {
+        gap: 3.5em;
+    }
+}
+
+@media (min-width: 144em) {
+    .one-container-content {
+        gap: 4em;
+    }
+}
+
+@media (min-width: 160em) {
+    .one-container-content {
+        gap: 4.5em;
+    }
+}
+
+/*
+TODO
+
+sektionen behöver begränsas i width & height.  klar?
+
+edge padding över 48em behöver vara mer
+
+kanske en max width på sektionen? klar
+
+jobbar i demo för en ny karta. & implementering klar
+
+---
+
+Sektioner behöver organiseras, - bilder ska se över - Vilka ska vara gallerier & vilka ska vara bilder
+
+html struktur ska snyggas till
+
+klar?
+
+Bilder:
+
+Stockholm 5
+
+Malmö 1
+
+Uppsala 1
+
+Örebro 1
+
+Sundsvall/Färila/bollnäs = Samma 2
+
+Göteborg/Vara = samma
+
+
+*/
+
+.image2 {
+    padding: var(--edge-pd);
+    height: 40em;
+    width: 100%;
+}
+
+.image2 img {
+    object-position: 50% 75%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+
+
+/* Sektion scroll */
+
+:root {
+    --neon-yellow: #ffff00;
+    --neon-highlight: #ffff99;
+    --dark-bg: red;
+    --map-bg: #0a0aaa;
+}
+
+.map-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 15px;
+}
+
+@media (min-width: 64em) {
+    .map-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+        height: 100vh;
+        min-height: 600px;
+        padding: 0 30px;
+    }
+    
+    .map-content-section {
+        flex: 1;
+        max-width: 38%;
+        background-color: black;
+    }
+    
+    .map-container {
+        flex: 1;
+        max-width: 62%;
+        /*background-color: brown;*/
+    }
+}
+
+.map-content {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    /*background-color: rgb(73, 66, 134);*/
+}
+
+.map-content-image {
+    width: 100%;
+    display: block;
+}
+
+.poi {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--neon-yellow);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 0 12px 2px rgba(255, 255, 0, 0.7), 
+                0 0 20px 5px rgba(255, 255, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    z-index: 3;
+}
+
+.poi:hover {
+    transform: scale(1.8);
+    z-index: 10;
+    background-color: var(--neon-highlight);
+    box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.9), 
+                0 0 30px 10px rgba(255, 255, 0, 0.5),
+                0 0 50px 15px rgba(255, 255, 0, 0.3);
+}
+
+.poi::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 0, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.6s ease;
+}
+
+.poi:hover::before {
+    transform: translate(-50%, -50%) scale(4);
+}
+
+.tooltip {
+    position: absolute;
+    /*background-color: rgba(10, 10, 10, 0.85);*/
+    background-color: black;
+    color: var(--neon-yellow);
+    padding: 12px 18px;
+    border-radius: 8px;
+    width: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 5;
+    transform: translateY(5px) scale(0.95);
+    box-shadow: 0 0 25px rgba(255, 255, 0, 0.2), 
+                0 0 5px rgba(255, 255, 0, 0.15);
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 0, 0.3);
+}
+
+/* Tooltip lysande kant */
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, rgba(255, 255, 0, 0.5), transparent 80%);
+    opacity: 0.2;
+    z-index: -1;
+    filter: blur(3px);
+}
+
+.poi:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.tooltip h3 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Montserrat';
+    color: var(--neon-yellow);
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.4);
+    line-height: normal;
+}
+
+.map-content-section h1 {
+    color: #ffffff;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 2rem; /*42px*/
+    margin-bottom: 24px;
+    /*letter-spacing: 0.08em;*/
+    line-height: 1.2;
+}
+
+.map-intro {
+    color: gainsboro; /*aaaaaa*/
+    font-weight: lighter; /*300*/
+    font-size: 1rem; /*16px*/
+    letter-spacing: 0.02em;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+@media (max-width: 64em) {
+    .map-section {
+        padding: 30px 15px;
+    }
+    
+    .map-content-section h1 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    
+    .map-intro {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .map-content {
+        margin-top: 20px;
+    }
+}
+
+.poi:hover {
+    opacity: 1;
+}
+
+/* Sparkle-effekt -> POI hover */
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: var(--neon-highlight);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+/* Neon-pulserande animation för POIs */
+@keyframes neonPulse {
+    0% {
+        box-shadow: 0 0 7px 2px rgba(255, 255, 0, 0.7), 
+                    0 0 10px 5px rgba(255, 255, 0, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 15px 4px rgba(255, 255, 0, 0.8), 
+                    0 0 25px 10px rgba(255, 255, 0, 0.4);
+        transform: scale(1.1);
+    }
+    100% {
+        box-shadow: 0 0 7px 2px rgba(255, 255, 0, 0.7), 
+                    0 0 10px 5px rgba(255, 255, 0, 0.3);
+        transform: scale(1);
+    }
+}
+
+.poi {
+    animation: neonPulse 3s infinite;
+    animation-delay: calc(var(--delay) * 0.7s);
+}
+
+
+
+/* -------- distrikts sektioner --------- */
+
+.s-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: var(--edge-pd);
+    max-width: 90em; /* 64 em på laptop? */
+    margin: 0 auto;
+}
+
+.s-header {
+    color: white;
+    padding: var(--edge-pd) 0;
+    text-transform: uppercase;
+}
+
+.s-gallery {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 16px;
+}
+
+.s-gallery-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.s-gallery img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.s-gallery-item {
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0; /* Prevent items from shrinking */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Keep your existing control styles unchanged */
+.s-gallery-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.s-gallery-prev, .s-gallery-next {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    width: 2rem;
+    padding: 0;
+
+    /* ... Tar bort visuel bugg på mobil  ... */
+    appearance: none;
+    background-color: transparent;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.s-gallery-prev {
+    left: 20px;
+}
+
+.s-gallery-next {
+    right: 20px;
+}
+
+.s-slideshow-arrow {
+    fill: rgba(255, 255, 255, 0.8);
+    transition: fill 0.3s ease;
+}
+
+.s-gallery-prev:hover .s-slideshow-arrow,
+.s-gallery-next:hover .s-slideshow-arrow {
+    fill: white;
+}
+
+/* Navigation Dots */
+.s-gallery-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.s-gallery-dot {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.s-gallery-dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}

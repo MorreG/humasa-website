@@ -1,0 +1,71 @@
+
+
+/*
+namnbyte:
+
+section-one -> hero
+one-background -> hero-background
+one-header -> hero-header
+
+p
+h2
+
+
+*/
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.hero-background {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-height: 20%;
+    background-color: var(--clr-primary);
+    margin: 0;
+    gap: 0.5em;
+    padding-left: var(--edge-pd); /*EDGE PADDING // ksk borde ändras till 5%*/
+    padding-bottom: 1em;
+    color: var(--clr-secondary);
+    
+}
+
+.hero-header h1 {
+    display: flex;
+    flex: 2;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-size: var(--fs-h1);
+    margin: 0;
+
+}
+
+.hero-header p { /* borde bli h5? */
+    flex: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0;
+    font-weight: lighter;
+    color: gainsboro; /* samma som under h2 */
+}
+
+@media (min-width: 64em) {
+    .hero-header {
+        padding-top: 1em;
+    }
+}
