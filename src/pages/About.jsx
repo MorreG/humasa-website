@@ -1,4 +1,5 @@
 import React, { useRef, useLayoutEffect } from 'react';
+import { asset } from '../utils/assetPath';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import MagneticButton from '../components/MagneticButton';
@@ -39,7 +40,7 @@ export default function About() {
       <section className="relative w-full h-[100vh] flex items-end pb-12 px-6 md:px-12 bg-black overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/IMG/DSC_1548.jpg"
+            src={asset('IMG/DSC_1548.jpg')}
             alt="Stockholm Architecture"
             className="w-full h-full object-cover opacity-90 transition-opacity"
           />
@@ -121,7 +122,7 @@ export default function About() {
 
             <div className="relative flex flex-col justify-end items-center md:items-end">
               <div className="w-[80vw] h-[80vw] max-w-[400px] max-h-[400px] overflow-hidden rounded-full bg-black relative group mx-auto md:mx-0 shrink-0">
-                <img src="/IMG/DSC_2306crop.png" alt="Mårten Andreasson" className="w-[80%] h-[80%] object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] opacity-90 mx-auto translate-y-[10%]" />
+                <img src={asset('IMG/DSC_2306crop.png')} alt="Mårten Andreasson" className="w-[80%] h-[80%] object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] opacity-90 mx-auto translate-y-[10%]" />
               </div>
               <div className="mt-8 text-center md:text-right">
                 <h2 className="font-heading font-bold text-3xl mb-2 text-white">Mårten Andreasson</h2>

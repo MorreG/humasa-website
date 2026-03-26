@@ -1,16 +1,17 @@
 import Gallery from '../components/Gallery';
+import { asset } from '../utils/assetPath';
 
 export default function Stockwik() {
   const images = [
-    { src: "/IMG/DSC_1836.JPG", alt: "Stockholm 1" },
-    { src: "/IMG/DSC_1548.jpg", alt: "Stockholm 2" },
-    { src: "/IMG/grey_flower.jpg", alt: "Stockholm 3" }
+    { src: asset('IMG/DSC_1836.JPG'), alt: "Stockholm 1" },
+    { src: asset('IMG/DSC_1548.jpg'), alt: "Stockholm 2" },
+    { src: asset('IMG/grey_flower.jpg'), alt: "Stockholm 3" }
   ];
 
   return (
     <main className="flex-1 bg-black">
       <section className="hero">
-        <div className="hero-background" style={{ backgroundImage: 'url("/IMG/DSC_1836.JPG")' }}></div>
+        <div className="hero-background" style={{ backgroundImage: `url(${asset('IMG/DSC_1836.JPG')})` }}></div>
         <div className="hero-header">
             <h1>Guldkant på tillvaron.</h1>
             <p>Ett arbete för investmentbolaget Stockwik.</p>
@@ -20,7 +21,7 @@ export default function Stockwik() {
       <section className="section-one">
         <div className="one-container">
             <div className="one-container-image">
-                <img src="/IMG/stwk1.jpeg" alt="" className="one-container-image__image" />
+                <img src={asset('IMG/stwk1.jpeg')} alt="" className="one-container-image__image" />
             </div>
             <div className="one-container-content">
                 <p className="font-body">Stockwik är ett svenskt investmentbolag med ett 20-tal företag spridda på olika platser runt om i Sverige. Med en växande bolagsportfölj och en ambition om att skapa en tydligare samhörighet blev målet att foliera alla företagsbilar med en guldkant.</p>
@@ -30,7 +31,7 @@ export default function Stockwik() {
         </div>
 
         <div className="image2">
-            <img src="/IMG/stwk2.jpg" alt="" />
+            <img src={asset('IMG/stwk2.jpg')} alt="" />
         </div>
       </section>
 
@@ -43,7 +44,7 @@ export default function Stockwik() {
         
         <div className="map-container">
             <div className="map-content relative">
-                <img src="/IMG/MAP_STWK_SWEDEN.png" alt="Map of Sweden" className="map-content-image w-full" />
+                <img src={asset('IMG/MAP_STWK_SWEDEN.png')} alt="Map of Sweden" className="map-content-image w-full" />
                 
                 {[
                   { name: "Stockholm", top: "66%", left: "54%", delay: 0 },

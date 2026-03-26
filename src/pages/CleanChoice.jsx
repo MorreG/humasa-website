@@ -1,16 +1,17 @@
 import Gallery from '../components/Gallery';
+import { asset } from '../utils/assetPath';
 
 export default function CleanChoice() {
   const images = [
-    { src: "/IMG/Mockup.jpg", alt: "Clean Choice Landnignssida" },
-    { src: "/IMG/Mockup (2).jpg", alt: "Clean Choice Kontakt" },
-    { src: "/IMG/Mockup (1).jpg", alt: "Clean Choice Tjänster" }
+    { src: asset('IMG/Mockup.jpg'), alt: "Clean Choice Landnignssida" },
+    { src: asset('IMG/Mockup (2).jpg'), alt: "Clean Choice Kontakt" },
+    { src: asset('IMG/Mockup (1).jpg'), alt: "Clean Choice Tjänster" }
   ];
 
   return (
     <main className="flex-1 text-white bg-black">
       <section className="hero">
-        <div className="hero-background" style={{ backgroundImage: 'url("/IMG/Mockup (18).jpg")', backgroundPosition: 'center 80%' }}></div>
+        <div className="hero-background" style={{ backgroundImage: `url(${asset('IMG/Mockup (18).jpg')})`, backgroundPosition: 'center 80%' }}></div>
         <div className="hero-header">
             <h1>Clean Choice</h1>
             <p>När målet är perfektion.</p>
@@ -19,7 +20,7 @@ export default function CleanChoice() {
 
       <section className="section-two">
         <div className="two-background relative">
-            <img src="/IMG/Mockup (21).jpg" alt="Test" className="two-background-image" />
+            <img src={asset('IMG/Mockup (21).jpg')} alt="Test" className="two-background-image" />
         </div>
         <div className="two-text-container">
             <div className="two-text">
@@ -36,7 +37,7 @@ export default function CleanChoice() {
       <section className="section-three">
         <div className="three-grid">
             <div className="three-grid-1 relative">
-                <img src="/IMG/Mockup (22).jpg" alt="Clean Choice Hemsida" className="three-grid-image absolute inset-0 object-cover" />
+                <img src={asset('IMG/Mockup (22).jpg')} alt="Clean Choice Hemsida" className="three-grid-image absolute inset-0 object-cover" />
             </div>
             <div className="three-grid-2">
                 <div className="three-text-container-1">
@@ -50,7 +51,7 @@ export default function CleanChoice() {
                 </div>
             </div>
             <div className="three-grid-3 relative">
-                <img src="/IMG/Mockup (23).jpg" alt="Clean Choice Hemsida" className="three-grid-image absolute inset-0 object-cover" />
+                <img src={asset('IMG/Mockup (23).jpg')} alt="Clean Choice Hemsida" className="three-grid-image absolute inset-0 object-cover" />
             </div>
             <div className="three-grid-4">
                 <div className="three-text-container-2">
@@ -68,7 +69,7 @@ export default function CleanChoice() {
         </div>
       </section>
 
-      <section className="h-[40vh] md:h-[60vh] bg-fixed bg-cover bg-center my-[10em]" style={{ backgroundImage: 'url("/IMG/Mockup (25).jpg")' }}>
+      <section className="h-[40vh] md:h-[60vh] bg-fixed bg-cover bg-center my-[10em]" style={{ backgroundImage: `url(${asset('IMG/Mockup (25).jpg')})` }}>
       </section>
 
       <section className="section-five">
@@ -109,12 +110,12 @@ export default function CleanChoice() {
         </div>
       </section>
 
-      <section className="h-[40vh] md:h-[60vh] bg-fixed bg-cover bg-center my-[10em]" style={{ backgroundImage: 'url("/IMG/Top View Grid.jpg")' }}>
+      <section className="h-[40vh] md:h-[60vh] bg-fixed bg-cover bg-center my-[10em]" style={{ backgroundImage: `url(${asset('IMG/Top View Grid.jpg')})` }}>
       </section>
 
       <section className="section-eight">
         <div className="eight-background relative">
-            <img src="/IMG/Mockup (16).jpg" alt="Test" className="eight-background-image absolute inset-0" />
+            <img src={asset('IMG/Mockup (16).jpg')} alt="Test" className="eight-background-image absolute inset-0" />
         </div>
         <div className="eight-text-container">
             <div className="eight-text">
@@ -133,7 +134,7 @@ export default function CleanChoice() {
       <section className="section-nine mb-20">
         <div className="nine-grid">
             <div className="nine-grid-1 relative">
-                <img src="/IMG/Mockup (28)_edited.jpg" alt="Clean Choice Hemsida" className="nine-grid-image absolute inset-0 object-cover" />
+                <img src={asset('IMG/Mockup (28)_edited.jpg')} alt="Clean Choice Hemsida" className="nine-grid-image absolute inset-0 object-cover" />
             </div>
             <div className="nine-grid-2">
                 <div className="nine-text-container-1">
@@ -147,7 +148,7 @@ export default function CleanChoice() {
                 </div>
             </div>
             <div className="nine-grid-3 relative">
-                <img src="/IMG/grey_flower.jpg" alt="Clean Choice Hemsida" className="nine-grid-image absolute inset-0 object-cover" />
+                <img src={asset('IMG/grey_flower.jpg')} alt="Clean Choice Hemsida" className="nine-grid-image absolute inset-0 object-cover" />
             </div>
             <div className="nine-grid-4">
                 <div className="nine-text-container-2">

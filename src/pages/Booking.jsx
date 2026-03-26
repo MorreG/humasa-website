@@ -1,16 +1,17 @@
 import Gallery from '../components/Gallery';
+import { asset } from '../utils/assetPath';
 
 export default function Booking() {
   const images = [
-    { src: "/IMG/STWKBOOKING8.jpg", alt: "Bokning 1" },
-    { src: "/IMG/DSC_1548.jpg", alt: "Bokning 2" },
-    { src: "/IMG/grey_flower.jpg", alt: "Bokning 3" }
+    { src: asset('IMG/STWKBOOKING8.jpg'), alt: "Bokning 1" },
+    { src: asset('IMG/DSC_1548.jpg'), alt: "Bokning 2" },
+    { src: asset('IMG/grey_flower.jpg'), alt: "Bokning 3" }
   ];
 
   return (
     <main className="flex-1 bg-black">
       <section className="hero">
-        <div className="hero-background" style={{ backgroundImage: 'url("/IMG/STWKBOKNING1.jpg")' }}></div>
+        <div className="hero-background" style={{ backgroundImage: `url(${asset('IMG/STWKBOKNING1.jpg')})` }}></div>
         <div className="hero-header">
             <h1>Bokningssystem med Humly.</h1>
             <p>Inköp, installation samt upprätthållning av ett bokningssystem från humly.</p>
@@ -20,7 +21,7 @@ export default function Booking() {
       <section className="section-one">
         <div className="one-container">
             <div className="one-container-image">
-                <img src="/IMG/STWKBOOKING3.jpg" alt="" className="one-container-image__image" />
+                <img src={asset('IMG/STWKBOOKING3.jpg')} alt="" className="one-container-image__image" />
             </div>
             <div className="one-container-content">
                 <p className="font-body">Stockwik är ett svenskt investmentbolag med 24 företag spridda på olika platser runt om i Sverige. Med en växande bolagsportfölj och en ambition om att skapa en tydligare samhörighet blev målet att foliera alla företagsbilar med en guldkant.</p>
@@ -31,7 +32,7 @@ export default function Booking() {
 
         <div className="one-container two">
             <div className="one-container-image">
-                <img src="/IMG/STWKBOOKING4.png" alt="" className="one-container-image__image two" />
+                <img src={asset('IMG/STWKBOOKING4.png')} alt="" className="one-container-image__image two" />
             </div>
             <div className="one-container-content">
                 <p className="font-body">Stockwik är ett svenskt investmentbolag med 24 företag spridda på olika platser runt om i Sverige. Med en växande bolagsportfölj och en ambition om att skapa en tydligare samhörighet blev målet att foliera alla företagsbilar med en guldkant.</p>
@@ -42,10 +43,10 @@ export default function Booking() {
 
         <div className="one-container two">
             <div className="one-container-image">
-                <img src="/IMG/STWKBOOKING7.jpg" alt="" className="one-container-image__image" />
+                <img src={asset('IMG/STWKBOOKING7.jpg')} alt="" className="one-container-image__image" />
             </div>
             <div className="one-container-image">
-                <img src="/IMG/STWKBOOKING7.jpg" alt="" className="one-container-image__image" />
+                <img src={asset('IMG/STWKBOOKING7.jpg')} alt="" className="one-container-image__image" />
             </div>
         </div>
       </section>

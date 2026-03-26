@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ArrowRight } from 'lucide-react';
 import MagneticButton from './MagneticButton';
@@ -9,6 +9,7 @@ export default function Navbar() {
   const navRef = useRef(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +32,7 @@ export default function Navbar() {
       if (element) {
         e.preventDefault();
         smoothScrollTo(element, 1000);
-        window.history.pushState(null, '', '/about#contact');
+        navigate('/about#contact');
       }
     }
   };
