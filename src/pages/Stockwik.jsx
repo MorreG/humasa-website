@@ -11,7 +11,7 @@ export default function Stockwik() {
   return (
     <main className="flex-1 bg-black">
       <section className="hero">
-        <div className="hero-background" style={{ backgroundImage: `url(${asset('IMG/DSC_1836.JPG')})` }}></div>
+        <div className="hero-background" style={{ backgroundImage: `url('${asset('IMG/DSC_1836.JPG')}')` }}></div>
         <div className="hero-header">
             <h1>Guldkant på tillvaron.</h1>
             <p>Ett arbete för investmentbolaget Stockwik.</p>

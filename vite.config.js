@@ -7,5 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/humasa-website/',   // <-- repository name, case‑sensitive
+  base: '/',   // <-- Root for custom domain humasa.se
 })

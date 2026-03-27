@@ -11,7 +11,7 @@ export default function Booking() {
   return (
     <main className="flex-1 bg-black">
       <section className="hero">
-        <div className="hero-background" style={{ backgroundImage: `url(${asset('IMG/STWKBOKNING1.jpg')})` }}></div>
+        <div className="hero-background" style={{ backgroundImage: `url('${asset('IMG/STWKBOKNING1.jpg')}')` }}></div>
         <div className="hero-header">
             <h1>Bokningssystem med Humly.</h1>
             <p>Inköp, installation samt upprätthållning av ett bokningssystem från humly.</p>

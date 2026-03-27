@@ -11,7 +11,7 @@ export default function CleanChoice() {
   return (
     <main className="flex-1 text-white bg-black">
       <section className="hero">
-        <div className="hero-background" style={{ backgroundImage: `url(${asset('IMG/Mockup (18).jpg')})`, backgroundPosition: 'center 80%' }}></div>
+        <div className="hero-background" style={{ backgroundImage: `url('${asset('IMG/Mockup (18).jpg')}')`, backgroundPosition: 'center 80%' }}></div>
         <div className="hero-header">
             <h1>Clean Choice</h1>
             <p>När målet är perfektion.</p>
@@ -69,7 +69,7 @@ export default function CleanChoice() {
         </div>
       </section>
 
-      <section className="h-[40vh] md:h-[60vh] bg-fixed bg-cover bg-center my-[10em]" style={{ backgroundImage: `url(${asset('IMG/Mockup (25).jpg')})` }}>
+      <section className="h-[40vh] md:h-[60vh] bg-fixed bg-cover bg-center my-[10em]" style={{ backgroundImage: `url('${asset('IMG/Mockup (25).jpg')}')` }}>
       </section>
 
       <section className="section-five">
@@ -110,7 +110,7 @@ export default function CleanChoice() {
         </div>
       </section>
 
-      <section className="h-[40vh] md:h-[60vh] bg-fixed bg-cover bg-center my-[10em]" style={{ backgroundImage: `url(${asset('IMG/Top View Grid.jpg')})` }}>
+      <section className="h-[40vh] md:h-[60vh] bg-fixed bg-cover bg-center my-[10em]" style={{ backgroundImage: `url('${asset('IMG/Top View Grid.jpg')}')` }}>
       </section>
 
       <section className="section-eight">
