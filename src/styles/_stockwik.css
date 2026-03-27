@@ -22,6 +22,8 @@
     object-fit: cover;
     object-position: center;
     border-radius: 16px;
+    width: 100%;
+    height: 100%;
 }
 
 .one-container-content {
@@ -47,6 +49,7 @@
     .one-container { /* Denna container håller allt vi kommer ha i sektionenen */
         display: flex; /* Sätter flex på sektionen för att rada upp både bild och text brevid varandra */
         flex-direction: row; /* Behövs egentligen inte då det är standardvalue men för tydlighetens skull */
+        align-items: center; /* Centrerar bild och text vertikalt */
         padding: var(--edge-pd);
         /*padding: 10em 10em;*//* TOP/BOTTOM, LEFT/RIGHT. Sätter padding på båda sidorna av containern */
         gap: 2em; /* Sätter ett mellanrum mellan de olika divvarna i containern, alltså ett mellanrum mellan bild & text */
@@ -55,8 +58,9 @@
 
     .one-container-image { /* Containern som bilden hålls innuti */
         flex: 1; /* Då paragrafen har en redan definierad max vidd sätter vi bilden till att ta upp mer plats */
-        object-fit: cover;
-        object-position: center;
+        overflow: hidden;
+        border-radius: 16px;
+        height: 100%;
         padding: 0;
     }
 
