@@ -5,6 +5,7 @@
     overflow: hidden;
     max-width: 90em;
     margin: 0 auto;
+    padding-bottom: 6em;
 }
 
 /*
@@ -158,9 +159,12 @@ Göteborg/Vara = samma
     padding: var(--edge-pd);
     height: 40em;
     width: 100%;
+    margin-bottom: 4em;
 }
 
 .image2 img {
+    width: 100%;
+    height: 100%;
     object-position: 50% 75%;
     object-fit: cover;
     border-radius: 16px;
@@ -399,130 +403,310 @@ Göteborg/Vara = samma
     animation-delay: calc(var(--delay) * 0.7s);
 }
 
+/* Active POI (city selected in gallery) */
+.poi--active {
+    background-color: var(--neon-highlight);
+    transform: scale(1.6);
+    box-shadow: 0 0 20px 6px rgba(255, 255, 0, 0.95),
+                0 0 40px 14px rgba(255, 255, 0, 0.5);
+    animation: none;
+}
 
 
-/* -------- distrikts sektioner --------- */
 
-.s-container {
+/* ================================================================
+   EXPLORE SECTION — map + image reveal split-panel
+   ================================================================ */
+
+.explore {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    max-width: 90em;
+    margin: 0 auto;
     padding: var(--edge-pd);
-    max-width: 90em; /* 64 em på laptop? */
+    gap: 2rem;
+}
+
+@media (min-width: 64em) {
+    .explore {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0;
+        padding: 0 var(--edge-pd);
+    }
+}
+
+/* — Left column (map + intro text) — */
+.explore__map-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 64em) {
+    .explore__map-col {
+        flex: 0 0 42%;
+        max-width: 42%;
+        padding: 3rem 2.5rem 3rem 0;
+        justify-content: center;
+    }
+}
+
+.explore__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.explore__heading {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.explore__intro {
+    color: gainsboro;
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    max-width: 400px;
+}
+
+.explore__hint {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,0,0.55);
+    margin-top: 0.2rem;
+}
+
+/* Map wrapper */
+.explore__map-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.explore__map {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
     margin: 0 auto;
 }
 
-.s-header {
-    color: white;
-    padding: var(--edge-pd) 0;
-    text-transform: uppercase;
+@media (min-width: 64em) {
+    .explore__map {
+        margin: 0;
+    }
 }
 
-.s-gallery {
+.explore__map-img {
+    width: 100%;
+    display: block;
+}
+
+@media (max-width: 64em) {
+    .explore__heading {
+        text-align: center;
+        font-size: 1.75rem;
+    }
+    .explore__intro {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .explore__hint {
+        text-align: center;
+    }
+}
+
+
+/* — Right column: image reveal panel — */
+.explore__reveal {
+    position: relative;
     overflow: hidden;
-    width: 100%;
-    height: 100%;
-    position: relative;
     border-radius: 16px;
+    background: #111;
+    min-height: 320px;
+    transition: opacity 0.5s ease;
 }
 
-.s-gallery-container {
+@media (min-width: 64em) {
+    .explore__reveal {
+        flex: 1;
+        min-height: unset;
+        border-radius: 16px;
+    }
+}
+
+/* ---- Image stack (crossfade) ---- */
+.reveal__img-stack {
+    position: absolute;
+    inset: 0;
+}
+
+.reveal__img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    position: relative;
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.s-gallery img {
     object-fit: cover;
     object-position: center;
-    width: 100%;
-    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 1;
 }
 
-.s-gallery-item {
-    min-width: 100%;
-    height: 100%;
-    flex-shrink: 0; /* Prevent items from shrinking */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.reveal__img--visible {
+    opacity: 1;
+    z-index: 2;
 }
 
-/* Keep your existing control styles unchanged */
-.s-gallery-controls {
+.reveal__vignette {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    z-index: 3;
     pointer-events: none;
-    z-index: 10;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.65) 0%,
+        rgba(0,0,0,0.15) 40%,
+        transparent 100%
+    );
 }
 
-.s-gallery-prev, .s-gallery-next {
+/* ---- City label (bottom-left overlay) ---- */
+.reveal__label {
     position: absolute;
-    top: 50%; 
-    transform: translateY(-50%);
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    animation: revealLabelIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes revealLabelIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal__label-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,0,0.75);
+}
+
+.reveal__label-city {
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin: 0;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+}
+
+/* ---- Image counter (bottom-right) ---- */
+.reveal__counter {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.reveal__count-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.7);
+    min-width: 2.5rem;
+    text-align: center;
+}
+
+.reveal__arrow {
     background: none;
     border: none;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    pointer-events: auto;
-    width: 2rem;
     padding: 0;
-
-    /* ... Tar bort visuel bugg på mobil  ... */
-    appearance: none;
-    background-color: transparent;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.s-gallery-prev {
-    left: 20px;
-}
-
-.s-gallery-next {
-    right: 20px;
-}
-
-.s-slideshow-arrow {
-    fill: rgba(255, 255, 255, 0.8);
-    transition: fill 0.3s ease;
-}
-
-.s-gallery-prev:hover .s-slideshow-arrow,
-.s-gallery-next:hover .s-slideshow-arrow {
-    fill: white;
-}
-
-/* Navigation Dots */
-.s-gallery-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
+    width: 1.4rem;
+    height: 1.4rem;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 10px;
-    z-index: 10;
+    transition: transform 0.2s ease;
 }
 
-.s-gallery-dot {
-    width: 0.4rem;
-    height: 0.4rem;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
+.reveal__arrow svg {
+    width: 0.75rem;
+    height: 100%;
+    fill: rgba(255,255,255,0.7);
+    transition: fill 0.2s ease;
 }
 
-.s-gallery-dot.active {
-    background-color: white;
-    transform: scale(1.2);
+.reveal__arrow:hover {
+    transform: scale(1.25);
+}
+
+.reveal__arrow:hover svg {
+    fill: #fff;
+}
+
+.reveal__arrow--prev svg {
+    transform: scaleX(-1);
+}
+
+/* ---- Placeholder (nothing selected) ---- */
+.reveal__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 320px;
+    gap: 1rem;
+    color: rgba(255,255,255,0.25);
+    text-align: center;
+    padding: 2rem;
+}
+
+@media (min-width: 64em) {
+    .reveal__placeholder {
+        min-height: unset;
+    }
+}
+
+.reveal__placeholder-icon {
+    width: 3rem;
+    height: 3rem;
+    opacity: 0.35;
+}
+
+.reveal__placeholder-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.reveal__placeholder p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.3);
 }
