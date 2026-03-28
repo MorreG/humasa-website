@@ -1,15 +1,21 @@
 import Gallery from '../components/Gallery';
+import SEO from '../components/SEO';
 import { asset } from '../utils/assetPath';
 
 export default function Booking() {
   const images = [
-    { src: asset('IMG/STWKBOOKING8.jpg'), alt: "Bokning 1" },
-    { src: asset('IMG/DSC_1548.jpg'), alt: "Bokning 2" },
-    { src: asset('IMG/grey_flower.jpg'), alt: "Bokning 3" }
+    { src: asset('IMG/STWKBOOKING8.jpg'), alt: "Stockwik Bokningssystem Panel" },
+    { src: asset('IMG/DSC_1548.jpg'), alt: "Kontorsarkitektur - Humly Installation" },
+    { src: asset('IMG/grey_flower.jpg'), alt: "Dekorativ blomma på kontor" }
   ];
 
   return (
     <main className="flex-1 bg-black">
+      <SEO 
+        title="Bokningssystem - Effektiv arbetsplats"
+        description="Läs om hur Humåsa hjälpte Stockwik med inköp och installation av ett modernt bokningssystem från Humly för delade arbetsytor."
+        url="/booking"
+      />
       <section className="hero">
         <div className="hero-background" style={{ backgroundImage: `url('${asset('IMG/STWKBOKNING1.jpg')}')` }}></div>
         <div className="hero-header">

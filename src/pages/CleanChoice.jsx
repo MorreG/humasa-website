@@ -1,15 +1,21 @@
 import Gallery from '../components/Gallery';
+import SEO from '../components/SEO';
 import { asset } from '../utils/assetPath';
 
 export default function CleanChoice() {
   const images = [
-    { src: asset('IMG/Mockup.jpg'), alt: "Clean Choice Landnignssida" },
-    { src: asset('IMG/Mockup (2).jpg'), alt: "Clean Choice Kontakt" },
-    { src: asset('IMG/Mockup (1).jpg'), alt: "Clean Choice Tjänster" }
+    { src: asset('IMG/Mockup.jpg'), alt: "Clean Choice Webbdesign Landningssida" },
+    { src: asset('IMG/Mockup (2).jpg'), alt: "Clean Choice Webbdesign Kontakt" },
+    { src: asset('IMG/Mockup (1).jpg'), alt: "Clean Choice Webbdesign Tjänster" }
   ];
 
   return (
     <main className="flex-1 text-white bg-black">
+      <SEO 
+        title="Clean Choice - Webbdesign & Profilering"
+        description="Läs om hur Humåsa hjälpte Clean Choice med en ny webbplats, modern design och ett helt nytt digitalt uttryck."
+        url="/cleanchoice"
+      />
       <section className="hero">
         <div className="hero-background" style={{ backgroundImage: `url('${asset('IMG/Mockup (18).jpg')}')`, backgroundPosition: 'center 80%' }}></div>
         <div className="hero-header">

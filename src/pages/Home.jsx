@@ -1,9 +1,16 @@
 import ProjectCard from '../components/ProjectCard';
+import SEO from '../components/SEO';
 import { asset } from '../utils/assetPath';
 
 export default function Home() {
   return (
     <main className="flex-1">
+      <h1 className="sr-only">Humåsa - Professionella konsulttjänster inom design, webb och hantverk</h1>
+      <SEO 
+        title="Konsulttjänster inom design, webb & hantverk"
+        description="Välkommen till Humåsa. Vi erbjuder skräddarsydda lösningar inom webbutveckling, grafisk dekalmontering och hantverkstjänster."
+        url=""
+      />
       <ProjectCard 
         bgImage={asset('IMG/CC-frontpage3.jpg')}
         title="CLEAN CHOICE"

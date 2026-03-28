@@ -6,12 +6,15 @@ import './styles/_cleanchoice.css'
 import './styles/_stockwik.css'
 import './styles/_booking.css'
 import './styles/_hero.css'
+import { HelmetProvider } from 'react-helmet-async'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>,
 )

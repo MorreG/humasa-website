@@ -1,4 +1,5 @@
 import React, { useRef, useLayoutEffect } from 'react';
+import SEO from '../components/SEO';
 import { asset } from '../utils/assetPath';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -37,6 +38,11 @@ export default function About() {
 
   return (
     <main ref={containerRef} className="flex flex-col flex-1 bg-black text-white">
+      <SEO 
+        title="Om Humåsa"
+        description="Läs mer om Humåsa och Mårten Andreasson. Vi erbjuder hantverkstjänster, digital design och personliga konsultlösningar."
+        url="/about"
+      />
       <section className="relative w-full h-[100vh] flex items-end pb-12 px-6 md:px-12 bg-black overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img

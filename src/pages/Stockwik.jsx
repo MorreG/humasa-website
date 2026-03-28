@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import SEO from '../components/SEO';
 import { asset } from '../utils/assetPath';
 
 /* ─── Per-city data ──────────────────────────────────────────────────────── */
