@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom';
 import MagneticButton from './MagneticButton';
 
 export default function Footer() {
+  const handleLogoClick = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
   return (
     <footer className="px-6 md:px-12 pt-12 pb-16 bg-[#0a0a0a] border-t border-offwhite/5 overflow-hidden relative">
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-12 gap-x-8 gap-y-16 md:gap-16 relative z-10">
@@ -32,7 +38,7 @@ export default function Footer() {
         <div className="col-span-1 md:col-span-2">
           <h4 className="font-data text-[10px] uppercase tracking-widest text-signal mb-8">Register</h4>
           <ul className="flex flex-col gap-4 font-heading text-sm text-offwhite/40">
-            <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><Link to="/">Hem</Link></li>
+            <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><Link to="/" onClick={handleLogoClick}>Hem</Link></li>
             <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><Link to="/about">Om</Link></li>
             <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><Link to="/about#contact">Kontakt</Link></li>
           </ul>
@@ -42,8 +48,8 @@ export default function Footer() {
         <div className="col-span-1 md:col-span-3">
           <h4 className="font-data text-[10px] uppercase tracking-widest text-signal mb-8">Kontakt</h4>
           <ul className="flex flex-col gap-4 font-heading text-sm text-offwhite/40">
-            <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><a href="https://www.linkedin.com/in/m%C3%A5rten-andreasson-551762226/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><a href="https://www.instagram.com/thisishumasa/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
           </ul>
         </div>
       </div>
