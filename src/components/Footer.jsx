@@ -50,6 +50,7 @@ export default function Footer() {
           <ul className="flex flex-col gap-4 font-heading text-sm text-offwhite/40">
             <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><a href="https://www.linkedin.com/in/m%C3%A5rten-andreasson-551762226/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><a href="https://www.instagram.com/thisishumasa/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li className="hover:text-offwhite cursor-pointer link-cinematic w-fit"><a href="https://github.com/MorreG" target="_blank" rel="noopener noreferrer">Github</a></li>
           </ul>
         </div>
       </div>
