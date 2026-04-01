@@ -117,3 +117,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 }
+
+@layer components {
+  .noise-overlay {
+    @apply fixed inset-0 pointer-events-none z-[9999] opacity-[0.05];
+    background: transparent;
+    filter: url(#noiseFilter);
+  }
+}
