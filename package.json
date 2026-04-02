@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "predeploy": "npm run build",
     "deploy": "set PATH=%PATH%;C:\\Program Files\\Git\\cmd && gh-pages -d dist"
   },
   "dependencies": {
