@@ -20,6 +20,7 @@ export default function ProjectCard({ bgImage, title, subtitle, linkText, linkTo
         { 
           scale: 1, 
           y: "0%",
+          force3D: true,
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -55,7 +56,7 @@ export default function ProjectCard({ bgImage, title, subtitle, linkText, linkTo
   return (
     <section 
       ref={sectionRef}
-      className="h-[100dvh] relative flex items-end text-white overflow-hidden bg-black"
+      className="h-[100svh] relative flex items-end text-white overflow-hidden bg-black"
     >
       {/* Parallax Background Layer */}
       <div 

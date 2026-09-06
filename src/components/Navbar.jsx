@@ -1,22 +1,28 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import gsap from 'gsap';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 import { smoothScrollTo } from '../utils/smoothScroll';
 
 export default function Navbar() {
-  const navRef = useRef(null);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 50);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
+    let wasScrolled;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const scrolled = window.scrollY > 50;
+      if (scrolled !== wasScrolled) {
+        wasScrolled = scrolled;
+        setIsScrolled(scrolled);
+      }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const initialFrame = requestAnimationFrame(handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(initialFrame);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleLogoClick = (e) => {
@@ -27,22 +33,23 @@ export default function Navbar() {
   };
 
   const handleContactClick = (e) => {
-    if (location.pathname === '/about') {
+    // A new hash is handled by ScrollToTop. Only repeat the scroll ourselves
+    // when the URL is already at the contact section.
+    if (location.pathname === '/about' && location.hash === '#contact') {
       const element = document.getElementById('contact');
       if (element) {
         e.preventDefault();
         smoothScrollTo(element, 1000);
-        navigate('/about#contact');
       }
     }
   };
 
   return (
     <nav
-      ref={navRef}
-      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] 
+      data-scrolled={isScrolled}
+      className={`site-nav fixed top-6 left-1/2 -translate-x-1/2 z-50 duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
       ${isScrolled 
-        ? 'w-[90%] md:w-[60%] py-3 px-6 bg-paper/60 backdrop-blur-xl border border-dark/10 rounded-full text-dark shadow-sm' 
+        ? 'w-[90%] md:w-[60%] py-[13px] px-[25px] rounded-full text-dark'
         : 'w-[95%] py-4 px-6 bg-transparent text-paper'}`}
     >
       <div className="flex items-center justify-between">

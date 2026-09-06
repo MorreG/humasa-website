@@ -19,7 +19,7 @@ h2
     margin: 0;
     padding: 0;
     height: 100vh;
-    height: 100dvh;
+    height: 100svh; /* Keep the page height stable while mobile browser chrome moves. */
 }
 
 .hero-background {

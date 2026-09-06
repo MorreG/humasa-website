@@ -1,11 +1,44 @@
+let cancelActiveScroll;
+
+export function cancelSmoothScroll() {
+  cancelActiveScroll?.();
+}
+
 export function smoothScrollTo(target, duration = 1200) {
   const targetElement = typeof target === 'string' ? document.querySelector(target) : target;
   if (!targetElement) return;
 
-  const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+  cancelSmoothScroll();
+
+  const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const targetPosition = Math.min(maxScroll, Math.max(0,
+    targetElement.getBoundingClientRect().top + window.scrollY));
   const startPosition = window.scrollY;
   const distance = targetPosition - startPosition;
   let startTime = null;
+  let frame;
+  const inputEvents = ['wheel', 'touchstart', 'pointerdown'];
+  const scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+
+  const cancel = () => {
+    cancelAnimationFrame(frame);
+    inputEvents.forEach((event) => window.removeEventListener(event, cancel));
+    window.removeEventListener('keydown', handleKeyDown);
+    if (cancelActiveScroll === cancel) cancelActiveScroll = undefined;
+  };
+  const handleKeyDown = (event) => {
+    if (scrollKeys.includes(event.key)) cancel();
+  };
+  cancelActiveScroll = cancel;
+
+  if (duration <= 0 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.scrollTo({ top: targetPosition, behavior: 'instant' });
+    cancel();
+    return cancel;
+  }
+
+  inputEvents.forEach((event) => window.addEventListener(event, cancel, { passive: true }));
+  window.addEventListener('keydown', handleKeyDown);
 
   // Pure ease-out curve with a gentle initial velocity.
   // This starts moving immediately but without an explosive "kick", 
@@ -19,15 +52,16 @@ export function smoothScrollTo(target, duration = 1200) {
     const timeElapsed = currentTime - startTime;
     const progress = Math.min(timeElapsed / duration, 1);
     
-    window.scrollTo(0, startPosition + distance * customEase(progress));
+    // CSS scroll-behavior: smooth must not start another animation each frame.
+    window.scrollTo({ top: startPosition + distance * customEase(progress), behavior: 'instant' });
 
     if (timeElapsed < duration) {
-      requestAnimationFrame(animation);
+      frame = requestAnimationFrame(animation);
     } else {
-      // Ensure we explicitly hit the exact target position at the end
-      window.scrollTo(0, targetPosition);
+      cancel();
     }
   }
 
-  requestAnimationFrame(animation);
+  frame = requestAnimationFrame(animation);
+  return cancel;
 }
