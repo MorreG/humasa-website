@@ -7,7 +7,10 @@ This is the website for Humasa.se
 - Vite
 - TailwindCSS
 
+## Sites left to be added
 
+- Tahulet Ed Tarha site
+- Klara Tyg & Garn Project
 
 
 
