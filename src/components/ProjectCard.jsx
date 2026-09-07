@@ -7,31 +7,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ProjectCard({ bgImage, title, subtitle, linkText, linkTo }) {
   const sectionRef = useRef(null);
-  const bgRef = useRef(null);
   const titleRef = useRef(null);
   const subRef = useRef(null);
   const btnRef = useRef(null);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      // 1. Background Parallax (Slight zoom and subtle movement)
-      gsap.fromTo(bgRef.current, 
-        { scale: 1.1, y: "-5%" },
-        { 
-          scale: 1, 
-          y: "0%",
-          force3D: true,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-          }
-        }
-      );
-
-      // 2. Content Entrances (Triggered when entering viewport)
+      // Only animate the content entrance. Scrubbing scale/translation on the
+      // full-screen photos caused continuous image rasterization while scrolling.
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -58,10 +41,9 @@ export default function ProjectCard({ bgImage, title, subtitle, linkText, linkTo
       ref={sectionRef}
       className="h-[100svh] relative flex items-end text-white overflow-hidden bg-black"
     >
-      {/* Parallax Background Layer */}
+      {/* Let the browser scroll the photo without per-frame style changes. */}
       <div 
-        ref={bgRef}
-        className="absolute inset-0 z-0 bg-cover bg-center transition-opacity duration-1000"
+        className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: `url('${bgImage}')` }}
       >
         <div className="absolute inset-0 bg-black/20"></div>

@@ -7,6 +7,7 @@ import About from './pages/About';
 import CleanChoice from './pages/CleanChoice';
 import Stockwik from './pages/Stockwik';
 import Booking from './pages/Booking';
+import TahuletEdTarha from './pages/TahuletEdTarha';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/cleanchoice" element={<CleanChoice />} />
         <Route path="/stockwik" element={<Stockwik />} />
         <Route path="/booking" element={<Booking />} />
+        <Route path="/tahuletedtarha" element={<TahuletEdTarha />} />
       </Routes>
       <Footer />
     </div>

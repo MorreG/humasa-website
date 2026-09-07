@@ -12,32 +12,32 @@ export default function Home() {
         url=""
       />
       <ProjectCard 
-        bgImage={asset('IMG/CC-frontpage3.jpg')}
+        bgImage={asset('IMG/CC-front.webp')}
         title="CLEAN CHOICE"
         subtitle="När målet är perfektion"
         linkText="Upptäck mer"
         linkTo="/cleanchoice"
       />
       <ProjectCard 
-        bgImage={asset('IMG/DSC_1836.JPG')}
+        bgImage={asset('IMG/SD-front.webp')}
         title="STOCKWIK DEKALER"
         subtitle="Ett nationellt täckande arbete med logistiska utmaningar i form av planering, teknik, och kontakt med verksamheter och dess personer."
         linkText="Upptäck mer"
         linkTo="/stockwik"
       />
       <ProjectCard 
-        bgImage={asset('IMG/bokningsskärmar.jpg')}
+        bgImage={asset('IMG/HB-front.webp')}
         title="BOKNINGSSYSTEM"
         subtitle="Ett bokningssystem för delade arbetsytor. En effektivare och smidigare arbetsplats."
         linkText="Upptäck mer"
         linkTo="/booking"
       />
       <ProjectCard 
-        bgImage={asset('IMG/tahuletedtarha.jpg')}
+        bgImage={asset('IMG/TeT-front.webp')}
         title="TAHULET ED TARHA"
         subtitle="Kärlek till Azawakh världen över"
         linkText="Upptäck mer"
-        linkTo="#"
+        linkTo="/tahuletedtarha"
       />
     </main>
   );
