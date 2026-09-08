@@ -33,7 +33,6 @@
 
   @media (min-width: 768px) {
     :root {
-      --clr-primary: darkgreen;
       --fs-h1: 3rem;
       --fs-h3: 2rem;
       --edge-pd: 2em;
@@ -42,7 +41,6 @@
 
   @media (min-width: 1024px) {
     :root {
-      --clr-primary: black;
       --fs-h1: clamp(3.4rem, 3vw + 1rem, 5rem);
       --fs-h2: 1.8rem;
       --edge-pd: 1.5em;
@@ -52,12 +50,6 @@
   @media (min-width: 1440px) {
     :root {
       --fs-body: 1.125rem;
-    }
-  }
-
-  @media (min-width: 2560px) {
-    :root {
-      --clr-primary: purple;
     }
   }
 
