@@ -1,0 +1,48 @@
+.next-project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 48px clamp(24px, 6vw, 110px);
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  color: inherit;
+}
+
+.next-project .next-project-label {
+  display: block;
+  font-family: var(--font-data);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.next-project strong {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -.04em;
+}
+
+.next-project > svg {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  transition: transform .2s ease;
+}
+
+.next-project:hover > svg { transform: translate(3px, -3px); }
+.next-project:focus-visible { outline: 2px solid currentColor; outline-offset: -6px; }
+.yarn-page .next-project { border: 0; }
+
+@media (max-width: 767px) {
+  .next-project .next-project-label { font-size: 9px; letter-spacing: .08em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .next-project > svg { transition: none; }
+}

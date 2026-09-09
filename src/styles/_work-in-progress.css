@@ -1,0 +1,29 @@
+.wip-page { flex: 1; background: #000; color: #f5f3ee; }
+.wip-content { padding: 150px clamp(24px, 6vw, 110px) 38px; min-height: 80svh; }
+.wip-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-bottom: 24px; border-bottom: 1px solid rgb(255 255 255 / 20%); }
+.wip-meta span, .wip-note { font-family: var(--font-data); font-size: 11px; line-height: 1.6; text-transform: uppercase; letter-spacing: .12em; }
+.wip-status { display: inline-flex; align-items: center; gap: 12px; }
+.wip-status::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #ff0000; }
+.wip-grid { display: grid; grid-template-columns: 1.8fr 1fr; align-items: center; gap: 40px; padding-block: 80px; }
+.wip-kicker { font-family: var(--font-drama); font-style: italic; font-size: 24px; line-height: 1.4; color: #aaa9a6; }
+.wip-page h1 { margin-block: 20px 30px; font-family: var(--font-heading); font-size: clamp(72px, 10vw, 156px); line-height: 1; letter-spacing: -.065em; }
+.wip-page h1 em { font-family: var(--font-drama); font-weight: 400; }
+.wip-description { max-width: 47ch; color: #aaa9a6; font-size: 19px; line-height: 1.65; }
+.wip-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px 32px; margin-top: 38px; }
+.wip-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; font-family: var(--font-heading); font-size: 15px; }
+.wip-home { padding: 16px 24px; background: #f5f3ee; color: #111; border-radius: 100px; }
+.wip-home:hover { background: #e8e4dd; }
+.wip-contact { padding-block: 10px; border-bottom: 1px solid #777; }
+.wip-contact:hover { border-color: currentColor; }
+.wip-actions a:focus-visible { outline: 2px solid #f5f3ee; outline-offset: 6px; }
+.wip-symbol { display: grid; place-items: center; aspect-ratio: 1; border: 1px solid #333; border-radius: 50%; }
+.wip-symbol svg { width: 85%; height: 85%; color: #ff0000; transform: rotate(15deg); }
+.wip-note { color: #aaa9a6; }
+@media (max-width: 767px) {
+  .wip-content { padding-top: 125px; }
+  .wip-meta span, .wip-note { font-size: 9px; }
+  .wip-grid { grid-template-columns: 1fr; gap: 45px; padding-block: 48px; }
+  .wip-kicker { font-size: 20px; }
+  .wip-description { font-size: 17px; }
+  .wip-symbol { width: 130px; justify-self: end; }
+}
