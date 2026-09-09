@@ -1,5 +1,6 @@
 import Gallery from '../components/Gallery';
 import SEO from '../components/SEO';
+import NextProject from '../components/NextProject';
 import { asset } from '../utils/assetPath';
 
 export default function Booking() {
@@ -65,6 +66,7 @@ export default function Booking() {
             <Gallery images={images} />
         </div>
       </div>
+      <NextProject currentProject="/booking" />
     </main>
   );
 }

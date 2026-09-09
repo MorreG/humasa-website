@@ -1,5 +1,6 @@
 import Gallery from '../components/Gallery';
 import SEO from '../components/SEO';
+import NextProject from '../components/NextProject';
 import { asset } from '../utils/assetPath';
 
 export default function CleanChoice() {
@@ -171,6 +172,7 @@ export default function CleanChoice() {
             </div>
         </div>
       </section>
+      <NextProject currentProject="/cleanchoice" />
     </main>
   );
 }

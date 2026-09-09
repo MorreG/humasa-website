@@ -39,6 +39,20 @@ export default function Home() {
         linkText="Upptäck mer"
         linkTo="/tahuletedtarha"
       />
+      <ProjectCard
+        bgImage={asset('IMG/techtrade-servers.jpg')}
+        title="TECHTRADE"
+        subtitle="Ett år nära tekniken. Och människorna som använder den."
+        linkText="Upptäck mer"
+        linkTo="/techtrade"
+      />
+      <ProjectCard
+        bgImage={asset('IMG/yarn-shop.jpg')}
+        title="GARNBUTIK, STOCKHOLM"
+        subtitle="Mer flyt. Mindre trassel. Nytt nätverk och kassasystem för en butik mitt i Stockholm."
+        linkText="Upptäck mer"
+        linkTo="/garnbutik"
+      />
     </main>
   );
 }

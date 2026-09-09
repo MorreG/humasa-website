@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import SEO from '../components/SEO';
+import NextProject from '../components/NextProject';
 import { asset } from '../utils/assetPath';
 
 /* ─── Per-city data ──────────────────────────────────────────────────────── */
@@ -228,6 +229,7 @@ export default function Stockwik() {
         </div>
       </section>
 
+      <NextProject currentProject="/stockwik" />
     </main>
   );
 }

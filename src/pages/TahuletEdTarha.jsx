@@ -1,5 +1,6 @@
 import Gallery from '../components/Gallery';
 import SEO from '../components/SEO';
+import NextProject from '../components/NextProject';
 import { asset } from '../utils/assetPath';
 
 // Replace the placeholder copy here; the layout matches Clean Choice.
@@ -195,6 +196,7 @@ export default function TahuletEdTarha() {
             </div>
         </div>
       </section>
+      <NextProject currentProject="/tahuletedtarha" />
     </main>
   );
 }

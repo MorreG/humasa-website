@@ -8,6 +8,7 @@ import CleanChoice from './pages/CleanChoice';
 import Stockwik from './pages/Stockwik';
 import Booking from './pages/Booking';
 import TahuletEdTarha from './pages/TahuletEdTarha';
+import WorkInProgress from './pages/WorkInProgress';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path="/stockwik" element={<Stockwik />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/tahuletedtarha" element={<TahuletEdTarha />} />
+        <Route path="/techtrade" element={<WorkInProgress projectName="Techtrade" projectPath="/techtrade" />} />
+        <Route path="/garnbutik" element={<WorkInProgress projectName="Garnbutik, Stockholm" projectPath="/garnbutik" />} />
       </Routes>
       <Footer />
     </div>
