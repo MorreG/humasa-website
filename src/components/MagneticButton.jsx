@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
-export default function MagneticButton({ children, className, onClick, type = "button" }) {
+export default function MagneticButton({ children, className, onClick, type = "button", disabled = false }) {
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -40,7 +40,8 @@ export default function MagneticButton({ children, className, onClick, type = "b
     <button
       type={type}
       ref={buttonRef}
-      className={`relative overflow-hidden group hover:scale-[1.03] transition-[scale] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${className}`}
+      disabled={disabled}
+      className={`relative overflow-hidden group enabled:hover:scale-[1.03] disabled:cursor-wait disabled:opacity-60 transition-[scale] duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${className}`}
       onClick={onClick}
     >
       <span className="relative z-10 flex items-center gap-2">{children}</span>

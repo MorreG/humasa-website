@@ -3,8 +3,7 @@ import SEO from '../components/SEO';
 import { asset } from '../utils/assetPath';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import MagneticButton from '../components/MagneticButton';
-import { ArrowUpRight } from 'lucide-react';
+import ContactForm from '../components/ContactForm';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,24 +105,7 @@ export default function About() {
                 [ KONTAKTA MIG ]
               </div>
 
-              <form className="flex flex-col gap-8" onSubmit={(e) => e.preventDefault()}>
-                <div className="relative group">
-                  <input type="text" id="namn" className="peer w-full bg-transparent border-b border-white/30 text-white py-4 outline-none focus:border-white placeholder-transparent transition-colors font-body" placeholder="Namn" required />
-                  <label htmlFor="namn" className="absolute left-0 -top-2 text-xs font-data text-white/50 pointer-events-none transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-2 peer-focus:text-xs text-white/60">Namn</label>
-                </div>
-                <div className="relative group">
-                  <input type="email" id="mejl" className="peer w-full bg-transparent border-b border-white/30 text-white py-4 outline-none focus:border-white placeholder-transparent transition-colors font-body" placeholder="Mejl" required />
-                  <label htmlFor="mejl" className="absolute left-0 -top-2 text-xs font-data text-white/50 pointer-events-none transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-2 peer-focus:text-xs text-white/60">Mejl</label>
-                </div>
-                <div className="relative group mt-4">
-                  <textarea id="meddelande" className="peer w-full bg-transparent border-b border-white/30 text-white py-4 outline-none focus:border-white placeholder-transparent transition-colors font-body min-h-[120px] resize-none" placeholder="Meddelande" required></textarea>
-                  <label htmlFor="meddelande" className="absolute left-0 -top-2 text-xs font-data text-white/50 pointer-events-none transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-2 peer-focus:text-xs text-white/60">Meddelande</label>
-                </div>
-
-                <MagneticButton type="submit" className="self-start px-8 py-4 bg-signal text-white rounded-full font-heading font-medium text-base mt-8 flex items-center gap-3">
-                  Skicka meddelande <ArrowUpRight size={18} />
-                </MagneticButton>
-              </form>
+              <ContactForm />
             </div>
 
             <div className="relative flex flex-col justify-end items-center md:items-end">
