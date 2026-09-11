@@ -9,8 +9,9 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/build-route-pages.mjs",
     "lint": "eslint .",
+    "test:prerender": "node --test tests/prerender.test.mjs",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"

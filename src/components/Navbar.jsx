@@ -3,9 +3,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 import { smoothScrollTo } from '../utils/smoothScroll';
+import { normalizePath } from '../utils/normalizePath';
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 50);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -35,7 +36,7 @@ export default function Navbar() {
   const handleContactClick = (e) => {
     // A new hash is handled by ScrollToTop. Only repeat the scroll ourselves
     // when the URL is already at the contact section.
-    if (location.pathname === '/about' && location.hash === '#contact') {
+    if (normalizePath(location.pathname) === '/about' && location.hash === '#contact') {
       const element = document.getElementById('contact');
       if (element) {
         e.preventDefault();

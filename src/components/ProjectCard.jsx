@@ -2,6 +2,7 @@ import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Button from './Button';
+import { shouldAnimateEntrance } from '../utils/entranceAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,7 @@ export default function ProjectCard({ bgImage, title, subtitle, linkText, linkTo
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
+      if (!shouldAnimateEntrance(titleRef.current)) return;
       // Only animate the content entrance. Scrubbing scale/translation on the
       // full-screen photos caused continuous image rasterization while scrolling.
       const tl = gsap.timeline({

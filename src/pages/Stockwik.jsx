@@ -104,6 +104,11 @@ export default function Stockwik() {
 
   return (
     <main className="flex-1 bg-black">
+      <SEO
+        title="Dekalmontering för Stockwik"
+        description="Humåsa hjälpte Stockwik att samordna och montera fordonsdekaler på företagsbilar runt om i Sverige. Läs om uppdraget och arbetet på plats."
+        url="/stockwik"
+      />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="hero">

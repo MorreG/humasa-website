@@ -4,6 +4,7 @@ import { asset } from '../utils/assetPath';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ContactForm from '../components/ContactForm';
+import { shouldAnimateEntrance } from '../utils/entranceAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +13,9 @@ export default function About() {
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.from(".anim-elem", {
+      const entranceElements = gsap.utils.toArray('.anim-elem', containerRef.current).filter(shouldAnimateEntrance);
+      const contentElements = gsap.utils.toArray('.anim-content', containerRef.current).filter(shouldAnimateEntrance);
+      if (entranceElements.length) gsap.from(entranceElements, {
         y: 40,
         opacity: 0,
         duration: 1.2,
@@ -20,7 +23,7 @@ export default function About() {
         ease: "power3.out",
         delay: 0.2
       });
-      gsap.from(".anim-content", {
+      if (contentElements.length) gsap.from(contentElements, {
         scrollTrigger: {
           trigger: ".content-trigger",
           start: "top 80%"

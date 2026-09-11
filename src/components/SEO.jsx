@@ -6,28 +6,30 @@ export default function SEO({ title, description, image, url }) {
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   const defaultDescription = 'Humåsa erbjuder skräddarsydda konsulttjänster inom webbutveckling, design och hantverk.';
   const defaultImage = asset('IMG/DSC_1836.JPG');
-  const siteUrl = 'https://humasa.se'; // Update with actual domain if different
+  const siteUrl = 'https://humasa.se';
+  const pageUrl = new URL(url || '/', siteUrl).href;
+  const imageUrl = new URL(image || defaultImage, siteUrl).href;
 
   return (
     <Helmet>
       {/* Basic Meta Tags */}
-      <title>{fullTitle}</title>
-      <meta name="description" content={description || defaultDescription} />
-      <link rel="canonical" href={`${siteUrl}${url || ''}`} />
+      <title data-page-seo="true">{fullTitle}</title>
+      <meta data-page-seo="true" name="description" content={description || defaultDescription} />
+      <link data-page-seo="true" rel="canonical" href={pageUrl} />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={`${siteUrl}${url || ''}`} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description || defaultDescription} />
-      <meta property="og:image" content={image || defaultImage} />
+      <meta data-page-seo="true" property="og:type" content="website" />
+      <meta data-page-seo="true" property="og:url" content={pageUrl} />
+      <meta data-page-seo="true" property="og:title" content={fullTitle} />
+      <meta data-page-seo="true" property="og:description" content={description || defaultDescription} />
+      <meta data-page-seo="true" property="og:image" content={imageUrl} />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={`${siteUrl}${url || ''}`} />
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={description || defaultDescription} />
-      <meta property="twitter:image" content={image || defaultImage} />
+      <meta data-page-seo="true" property="twitter:card" content="summary_large_image" />
+      <meta data-page-seo="true" property="twitter:url" content={pageUrl} />
+      <meta data-page-seo="true" property="twitter:title" content={fullTitle} />
+      <meta data-page-seo="true" property="twitter:description" content={description || defaultDescription} />
+      <meta data-page-seo="true" property="twitter:image" content={imageUrl} />
     </Helmet>
   );
 }

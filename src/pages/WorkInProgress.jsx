@@ -13,7 +13,7 @@ export default function WorkInProgress({ projectName, projectPath }) {
         description={`Snart kan du läsa mer om ${projectName}. Upptäck fler projekt från Humåsa under tiden.`}
         url={projectPath}
       />
-      <Helmet><meta name="robots" content="noindex, follow" /></Helmet>
+      <Helmet><meta data-page-seo="true" name="robots" content="noindex, follow" /></Helmet>
 
       <section className="wip-content">
         <div className="wip-meta">
