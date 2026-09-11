@@ -1,10 +1,12 @@
 import React, { useRef, useLayoutEffect } from 'react';
+import { ArrowDown } from 'lucide-react';
 import SEO from '../components/SEO';
 import { asset } from '../utils/assetPath';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ContactForm from '../components/ContactForm';
 import { shouldAnimateEntrance } from '../utils/entranceAnimation';
+import '../styles/_about.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,13 +41,13 @@ export default function About() {
   }, []);
 
   return (
-    <main ref={containerRef} className="flex flex-col flex-1 bg-black text-white">
+    <main ref={containerRef} className="about-page flex flex-col flex-1 bg-black text-white">
       <SEO 
         title="Om Humåsa"
         description="Läs mer om Humåsa och Mårten Andreasson. Vi erbjuder hantverkstjänster, digital design och personliga konsultlösningar."
         url="/about"
       />
-      <section className="relative w-full h-[100vh] flex items-end pb-12 px-6 md:px-12 bg-black overflow-hidden">
+      <section className="relative w-full min-h-[100svh] flex items-end pt-32 pb-12 px-6 md:px-12 bg-black overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={asset('IMG/About-header.webp')}
@@ -67,10 +69,15 @@ export default function About() {
               Humåsa.
             </span>
           </h1>
+          <div className="anim-elem">
+            <a href="#vision" className="about-scroll-link">
+              Läs mer <ArrowDown size={18} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="content-trigger py-32 px-6 md:px-12 max-w-7xl mx-auto w-full">
+      <section id="vision" tabIndex={-1} aria-label="Om Humåsas arbetssätt" className="content-trigger py-32 px-6 md:px-12 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
             <div className="anim-content font-data text-signal text-sm tracking-widest uppercase mb-6 sticky top-32">
