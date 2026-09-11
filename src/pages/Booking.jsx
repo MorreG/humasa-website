@@ -8,9 +8,10 @@ import { asset } from '../utils/assetPath';
 // Replace these paths and captions with the final software screenshots.
 // Set placeholder to false when a real screenshot is added.
 const softwareImages = [
-  { src: asset('IMG/booking/software-overview.svg'), alt: 'Platshållare för en skärmbild av programvarans översikt', title: 'Översikt', placeholder: true },
-  { src: asset('IMG/booking/software-calendar.svg'), alt: 'Platshållare för en skärmbild av bokningsvyn', title: 'Bokningsvy', placeholder: true },
-  { src: asset('IMG/booking/software-settings.svg'), alt: 'Platshållare för en skärmbild av administrationen', title: 'Administration', placeholder: true },
+  { src: asset('IMG/booking/HB-S1.jpg'), alt: 'Platshållare för en skärmbild av programvarans översikt', title: 'Översikt', placeholder: true },
+  { src: asset('IMG/booking/HB-S2.jpg'), alt: 'Platshållare för en skärmbild av bokningsvyn', title: 'Bokningsvy', placeholder: true },
+  { src: asset('IMG/booking/HB-S3.jpg'), alt: 'Platshållare för en skärmbild av administrationen', title: 'Administration', placeholder: true },
+  { src: asset('IMG/booking/HB-S4.jpg'), alt: 'Platshållare för en skärmbild av administrationen', title: 'Administration', placeholder: true },
 ];
 
 const responsibilities = [

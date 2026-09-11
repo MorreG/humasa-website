@@ -41,9 +41,6 @@
 .booking-window-dots i { width: 7px; height: 7px; border-radius: 50%; border: 1px solid #9ca79b; }
 .booking-gallery-screen { position: relative; aspect-ratio: 16 / 10; }
 .booking-gallery-screen > img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.booking-placeholder-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: max-content; max-width: 85%; padding: 24px 32px; text-align: center; background: #f5f6f1f2; border: 1px solid #b8c3b5; border-radius: 8px; box-shadow: 0 8px 35px #142a1610; }
-.booking-placeholder-label span { font: 10px var(--font-data); letter-spacing: .13em; color: #46634f; }
-.booking-placeholder-label p { font: 400 clamp(16px, 2vw, 24px)/1.4 var(--font-heading); margin-top: 10px; }
 .booking-gallery-footer { display: flex; justify-content: space-between; gap: 24px; align-items: center; margin-top: 24px; }
 .booking-page .booking-gallery-caption { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; font: 500 17px/1.5 var(--font-heading); }
 .booking-gallery-caption > span { font: 11px var(--font-data); color: #526350; }
@@ -94,8 +91,6 @@
   .booking-status-grid figcaption { padding-top: 20px; }
   .booking-gallery-bar { padding-inline: 12px; gap: 12px; height: 36px; }
   .booking-gallery-bar > span:last-child { font-size: 7px; }
-  .booking-placeholder-label { padding: 16px; }
-  .booking-placeholder-label span { font-size: 8px; }
   .booking-gallery-footer { flex-wrap: wrap; gap: 16px; }
   .booking-gallery-controls { margin-left: auto; }
   .booking-page .booking-gallery-caption { font-size: 15px; gap: 10px; }

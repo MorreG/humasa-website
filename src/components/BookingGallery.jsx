@@ -23,7 +23,6 @@ export default function BookingGallery({ images }) {
         <div className="booking-gallery-bar"><span className="booking-window-dots" aria-hidden="true"><i /><i /><i /></span><span>{current.placeholder ? 'FÖRHANDSVISNING / PROGRAMVARA' : 'HUMLY / PROGRAMVARA'}</span></div>
         <div className="booking-gallery-screen">
           <img src={current.src} alt={current.alt} width="1440" height="900" loading="lazy" />
-          {current.placeholder && <div className="booking-placeholder-label"><span>SKÄRMBILDER KOMMER</span><p>Här kommer programvaran att visas.</p></div>}
         </div>
       </div>
       <div className="booking-gallery-footer">
