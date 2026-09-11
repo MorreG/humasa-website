@@ -1,72 +1,47 @@
-import Gallery from '../components/Gallery';
 import SEO from '../components/SEO';
 import NextProject from '../components/NextProject';
 import { asset } from '../utils/assetPath';
 
-// Replace the placeholder copy here; the layout matches Clean Choice.
 const content = {
   title: 'Tahulet ed Tarha',
   subtitle: 'Kärlek till Azawakh världen över',
-  description: 'Tahulet ed Tarha – kärlek till Azawakh världen över. Ett projekt hos Humåsa.',
+  description: 'Läs om hur Humåsa byggde en webbplats åt Tahulet ed Tarha, en hundkennel med kärlek till Azawakh och ett intresse som sträcker sig världen över.',
   background: {
     heading: 'Bakgrund',
-    text: 'Platshållare: Beskriv Tahulet ed Tarha och bakgrunden till projektet.',
+    text: 'Tahulet ed Tarha är en passionerad hundkennel med en kärlek till Azawakh, ett intresse som delas av människor världen över. I samband med uppstarten behövde kenneln en egen webbplats för att presentera hundarna och tankarna bakom uppfödningen. En plats där nya kontakter kunde skapas och där intresserade kunde följa kenneln från början.',
   },
   project: {
     heading: 'Projektet',
-    text: 'Platshållare: Beskriv uppdraget, målen och samarbetet med Tahulet ed Tarha.',
+    text: 'Humåsa fick i uppdrag att bygga en hemsida som gav Tahulet ed Tarha en personlig plats på nätet. Med hundarna och uppfödningen i fokus ville vi skapa en webbplats där kärleken till rasen fick ta plats i både bild och text. Målet var att göra det enkelt att lära känna kenneln, följa utvecklingen och komma i kontakt, oavsett var i världen besökaren befinner sig.',
   },
   landing: {
-    heading: 'Landningssida',
-    text: 'Platshållare: Beskriv landningssidans utformning och hur den välkomnar besökaren.',
-  },
-  gallery: {
-    heading: 'Webbplatsen',
-    text: 'Platshållare: Presentera webbplatsens undersidor och bilderna i galleriet.',
-  },
-  featureOne: {
-    heading: 'Landningssida',
-    text: 'Platshållare: Beskriv den första delen av webbplatsen.',
-  },
-  featureTwo: {
-    heading: 'Innehåll',
-    text: 'Platshållare: Beskriv hur innehållet presenteras för besökaren.',
-  },
-  featureThree: {
-    heading: 'Detaljer',
-    text: 'Platshållare: Lyft fram en detalj eller funktion i projektet.',
+    heading: 'Struktur',
+    text: 'Webbplatsens struktur utformades för både den som möter Tahulet ed Tarha för första gången och den som återkommer för att se vad som hänt sedan sist. Information om kenneln och hundarna ger en introduktion, medan uppdateringar kring uppfödningen ger en anledning att komma tillbaka. Med en tydlig uppdelning av innehållet ville vi göra det lätt att hitta vidare och fördjupa sig i det som väcker intresse.',
   },
   about: {
-    heading: 'Om oss',
-    text: 'Platshållare: Beskriv hur webbplatsen presenterar Tahulet ed Tarha och deras kärlek till Azawakh.',
+    heading: 'Hundarna i bild',
+    text: 'Bilderna fick en central roll i utformningen av webbplatsen. De låter besökaren lära känna hundarna och följa deras utveckling, även på avstånd. Genom att ge fotografierna gott om utrymme ville vi förmedla närheten till hundarna och vardagen på kenneln. För ett intresse som sträcker sig över landsgränser blir bilderna också ett gemensamt språk, där varje ögonblick kan berätta något utan att behöva förklaras i ord.',
   },
   details: {
-    heading: 'Fördjupning',
-    text: 'Platshållare: Berätta mer om en del av projektet och visa den i bilden intill.',
+    heading: 'Löpande uppdateringar',
+    text: 'För att ge en djupare inblick i uppfödningen behövde bilderna kompletteras med text. Webbplatsen fick därför utrymme för uppdateringar om hundarnas utveckling, planer för kenneln och händelser längs vägen. Här kan Tahulet ed Tarha dela med sig av både små framsteg och större milstolpar. Texterna ger ett sammanhang till bilderna och låter den som är intresserad följa hur en ny kennel växer fram, steg för steg.',
   },
   summary: {
     heading: 'Sammanfattning',
-    text: 'Platshållare: Sammanfatta projektet och det färdiga resultatet.',
+    text: 'Med den nya webbplatsen har Tahulet ed Tarha fått en plats att samla sin berättelse och dela den med människor som har samma intresse för Azawakh. Humåsa har låtit bild, text och en tydlig struktur samverka för att presentera kenneln och ge utrymme för det som kommer framöver. Resultatet är en personlig hemsida som kan växa tillsammans med uppfödningen och knyta kontakter världen över.',
   },
 };
 
-// All image slots temporarily use the existing project image.
-// Replace each path (relative to public/) and alt text as new images are added.
+// Update each path (relative to public/) and alt text as images are finalized.
 const images = {
-  hero: { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
-  background: { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
-  project: { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
-  landing: { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
-  firstBanner: { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
-  secondBanner: { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
-  about: { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
-  details: { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
-  summary: { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
-  gallery: [
-    { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig galleribild 1' },
-    { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig galleribild 2' },
-    { src: asset('IMG/tahuletedtarha.jpg'), alt: 'Tahulet ed Tarha – tillfällig galleribild 3' },
-  ],
+  hero: { src: asset('IMG/TeT-header.JPG'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
+  background: { src: asset('IMG/TeT-1.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
+  project: { src: asset('IMG/TeT-2.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
+  landing: { src: asset('IMG/TeT-3.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
+  secondBanner: { src: asset('IMG/TeT-7.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
+  about: { src: asset('IMG/TeT-6.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
+  details: { src: asset('IMG/TeT-4.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
+  summary: { src: asset('IMG/TeT-5.jpg'), alt: 'Tahulet ed Tarha – tillfällig projektbild' },
 };
 
 export default function TahuletEdTarha() {
@@ -116,44 +91,6 @@ export default function TahuletEdTarha() {
                 <div className="three-text-container-2">
                     <h2 className="text-3xl font-subheading font-bold mb-4">{content.landing.heading}</h2>
                     <p className="font-body text-[1rem]">{content.landing.text}</p>
-                </div>
-            </div>
-        </div>
-      </section>
-
-      <section className="h-[40vh] md:h-[60vh] bg-fixed bg-cover bg-center my-[10em]" style={{ backgroundImage: `url('${images.firstBanner.src}')` }}>
-      </section>
-
-      <section className="section-five">
-        <div className="five-background">
-            <Gallery images={images.gallery} />
-        </div>
-        <div className="five-text-container">
-            <div className="five-text">
-                <h2 className="text-3xl font-subheading font-bold mb-4">{content.gallery.heading}</h2>
-                <p className="font-body text-[1rem]">{content.gallery.text}</p>
-            </div>
-        </div>
-      </section>
-
-      <section className="section-six">
-        <div className="six-info-container">
-            <div className="six-info-1">
-                <div className="six-info-text six-info-text-1">
-                    <h2 className="text-2xl font-subheading mb-2">{content.featureOne.heading}</h2>
-                    <p className="font-body text-[0.9rem]">{content.featureOne.text}</p>
-                </div>
-            </div>
-            <div className="six-info-2">
-                <div className="six-info-text six-info-text-2">
-                    <h2 className="text-2xl font-subheading mb-2">{content.featureTwo.heading}</h2>
-                    <p className="font-body text-[0.9rem]">{content.featureTwo.text}</p>
-                </div>
-            </div>
-            <div className="six-info-3">
-                <div className="six-info-text six-info-text-3">
-                    <h2 className="text-2xl font-subheading mb-2">{content.featureThree.heading}</h2>
-                    <p className="font-body text-[0.9rem]">{content.featureThree.text}</p>
                 </div>
             </div>
         </div>
