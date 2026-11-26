@@ -7,7 +7,7 @@ This is the website for Humasa.se
 - Vite
 - TailwindCSS
 
-## Preview unfinished projects
+## Preview project pages
 
 Run `npm run dev` and open these paths on the local URL printed by Vite:
 
@@ -16,7 +16,7 @@ Run `npm run dev` and open these paths on the local URL printed by Vite:
 
 These preview routes are available only in the development server, not in
 production builds or `npm run preview`. The regular `/techtrade` and `/garnbutik`
-paths continue to show the work-in-progress page.
+paths serve the completed project pages in both development and production.
 
 ## Pre-rendered pages on GitHub Pages
 
@@ -61,8 +61,8 @@ content and links remain available; interactive controls require JavaScript.
 ### Verification
 
 Run `npm run lint`, `npm run build`, and `npm run test:prerender`. The generated
-HTML checks cover content, unique per-page metadata, canonical URLs, unfinished
-pages' `noindex`, linked assets, and excluded preview/server files.
+HTML checks cover content, unique per-page metadata, canonical URLs, indexable
+project pages, project navigation order, linked assets, and excluded preview/server files.
 
 Serve `dist` using a plain static HTTP server to verify direct page requests.
 Vite's dev/preview SPA fallback can hide missing files, so it is insufficient
@@ -124,10 +124,6 @@ Provider references: [AJAX submissions](https://help.formspree.io/articles/build
 [special fields](https://help.formspree.io/articles/building-your-form/special-fields/),
 [honeypot](https://help.formspree.io/articles/building-your-form/honeypot-spam-filtering),
 [CAPTCHA settings](https://help.formspree.io/articles/form-and-project-settings/recaptcha-settings).
-
-## Sites left to be added
-
-- Klara Tyg & Garn Project
 
 ## Tahulet ed Tarha
 

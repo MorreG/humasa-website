@@ -6,33 +6,40 @@ export default function Home() {
   return (
     <main className="flex-1">
       <h1 className="sr-only">Humåsa - Professionella konsulttjänster inom design, webb och hantverk</h1>
-      <SEO 
+      <SEO
         title="Konsulttjänster inom design, webb & hantverk"
         description="Välkommen till Humåsa. Vi erbjuder skräddarsydda lösningar inom webbutveckling, grafisk dekalmontering och hantverkstjänster."
         url=""
       />
-      <ProjectCard 
+      <ProjectCard
         bgImage={asset('IMG/CC-front.webp')}
         title="CLEAN CHOICE"
         subtitle="När målet är perfektion"
         linkText="Upptäck mer"
         linkTo="/cleanchoice"
       />
-      <ProjectCard 
+      <ProjectCard
+        bgImage={asset('IMG/GB-header2f.webp')}
+        title="GARNBUTIK, STOCKHOLM"
+        subtitle="Mer flyt. Mindre trassel. Nytt nätverk och kassasystem för en butik mitt i Stockholm."
+        linkText="Upptäck mer"
+        linkTo="/garnbutik"
+      />
+      <ProjectCard
         bgImage={asset('IMG/SD-front.webp')}
         title="STOCKWIK DEKALER"
         subtitle="Ett nationellt täckande arbete med logistiska utmaningar i form av planering, teknik, och kontakt med verksamheter och dess personer."
         linkText="Upptäck mer"
         linkTo="/stockwik"
       />
-      <ProjectCard 
-        bgImage={asset('IMG/HB-front.webp')}
-        title="BOKNINGSSYSTEM"
-        subtitle="Ett bokningssystem för delade arbetsytor. En effektivare och smidigare arbetsplats."
+      <ProjectCard
+        bgImage={asset('IMG/TT-headerb.webp')}
+        title="TECHTRADE"
+        subtitle="Ett år nära tekniken. Och människorna som använder den."
         linkText="Upptäck mer"
-        linkTo="/booking"
+        linkTo="/techtrade"
       />
-      <ProjectCard 
+      <ProjectCard
         bgImage={asset('IMG/TeT-front.webp')}
         title="TAHULET ED TARHA"
         subtitle="Kärlek till Azawakh världen över"
@@ -40,18 +47,11 @@ export default function Home() {
         linkTo="/tahuletedtarha"
       />
       <ProjectCard
-        bgImage={asset('IMG/techtrade-servers.jpg')}
-        title="TECHTRADE"
-        subtitle="Ett år nära tekniken. Och människorna som använder den."
+        bgImage={asset('IMG/HB-front.webp')}
+        title="BOKNINGSSYSTEM"
+        subtitle="Ett bokningssystem för delade arbetsytor. En effektivare och smidigare arbetsplats."
         linkText="Upptäck mer"
-        linkTo="/techtrade"
-      />
-      <ProjectCard
-        bgImage={asset('IMG/yarn-shop.jpg')}
-        title="GARNBUTIK, STOCKHOLM"
-        subtitle="Mer flyt. Mindre trassel. Nytt nätverk och kassasystem för en butik mitt i Stockholm."
-        linkText="Upptäck mer"
-        linkTo="/garnbutik"
+        linkTo="/booking"
       />
     </main>
   );

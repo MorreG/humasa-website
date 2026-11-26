@@ -9,7 +9,6 @@ import CleanChoice from './pages/CleanChoice';
 import Stockwik from './pages/Stockwik';
 import Booking from './pages/Booking';
 import TahuletEdTarha from './pages/TahuletEdTarha';
-import WorkInProgress from './pages/WorkInProgress';
 import Techtrade from './pages/Techtrade';
 import YarnShop from './pages/YarnShop';
 import { publicRoutes } from './publicRoutes';
@@ -34,8 +33,8 @@ function App() {
         <Route path={publicRoutes.stockwik} element={<Stockwik />} />
         <Route path={publicRoutes.booking} element={<Booking />} />
         <Route path={publicRoutes.tahuletEdTarha} element={<TahuletEdTarha />} />
-        <Route path={publicRoutes.techtrade} element={<WorkInProgress projectName="Techtrade" projectPath={publicRoutes.techtrade} />} />
-        <Route path={publicRoutes.yarnShop} element={<WorkInProgress projectName="Garnbutik, Stockholm" projectPath={publicRoutes.yarnShop} />} />
+        <Route path={publicRoutes.techtrade} element={<Techtrade />} />
+        <Route path={publicRoutes.yarnShop} element={<YarnShop />} />
         {import.meta.env.DEV && (
           <>
             <Route path="/preview/techtrade" element={<Techtrade />} />

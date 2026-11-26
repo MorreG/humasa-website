@@ -5,11 +5,11 @@ import '../styles/_next-project.css';
 // Keep the reading order aligned with the homepage.
 const projects = [
   { path: '/cleanchoice', title: 'Clean Choice' },
-  { path: '/stockwik', title: 'Stockwik Dekaler' },
-  { path: '/booking', title: 'Bokningssystem' },
-  { path: '/tahuletedtarha', title: 'Tahulet ed Tarha' },
-  { path: '/techtrade', title: 'Techtrade' },
   { path: '/garnbutik', title: 'Garnbutik, Stockholm' },
+  { path: '/stockwik', title: 'Stockwik Dekaler' },
+  { path: '/techtrade', title: 'Techtrade' },
+  { path: '/tahuletedtarha', title: 'Tahulet ed Tarha' },
+  { path: '/booking', title: 'Bokningssystem' },
 ];
 
 export default function NextProject({ currentProject }) {

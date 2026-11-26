@@ -4,7 +4,6 @@ import { test } from 'node:test';
 import { publicRoutes } from '../src/publicRoutes.js';
 
 const dist = new URL('../dist/', import.meta.url);
-const unfinished = new Set(['/techtrade', '/garnbutik']);
 
 for (const route of Object.values(publicRoutes)) {
   test(`${route} delivers page content and a single complete metadata set`, async () => {
@@ -26,7 +25,7 @@ for (const route of Object.values(publicRoutes)) {
     }
     assert.match(head, /property="og:image" content="https:\/\/humasa\.se\//);
     assert.doesNotMatch(body, /<title[\s>]|name="description"|rel="canonical"/);
-    assert.equal(head.includes('content="noindex, follow"'), unfinished.has(route));
+    assert.doesNotMatch(head, /name="robots"[^>]*content="noindex/);
 
     // Missing bundles would leave a readable but noninteractive page.
     const assets = [...html.matchAll(/(?:src|href)="(\/assets\/[^"]+)"/g)];
@@ -43,6 +42,26 @@ test('project-specific content and form configuration survive build-time renderi
   assert.match(stockwik, /Guldkant på tillvaron/);
   // Either the configured form or the deliberate email fallback must exist.
   assert.match(about, /aria-label="Kontaktformulär"|Kontakta mig via mejl/);
+});
+
+test('project links follow the homepage order and open the completed pages', async () => {
+  const order = ['/cleanchoice', '/garnbutik', '/stockwik', '/techtrade', '/tahuletedtarha', '/booking'];
+  const home = await readFile(new URL('index.html', dist), 'utf8');
+  const projectLinks = [...home.matchAll(/<a\b[^>]*href="([^"]+)"/g)]
+    .map(([, href]) => href).filter(href => order.includes(href));
+  assert.deepEqual(projectLinks, order);
+  for (const [index, route] of order.entries()) {
+    const html = await readFile(new URL(`${route.slice(1)}/index.html`, dist), 'utf8');
+    const next = html.match(/<a\b[^>]*class="next-project"[^>]*href="([^"]+)"/);
+    assert.equal(next?.[1], order[(index + 1) % order.length]);
+    if (route === '/techtrade' || route === '/garnbutik') {
+      assert.match(html, new RegExp(`class="case-page ${route === '/techtrade' ? 'tech' : 'yarn'}-page"`));
+      assert.doesNotMatch(html, /wip-page|Snart här|Arbete pågår/);
+      const images = [...html.matchAll(/<img\b[^>]*src="([^"]+)"/g)];
+      assert.ok(images.length >= 2);
+      for (const [, src] of images) await access(new URL(src.replace(/^\//, ''), dist));
+    }
+  }
 });
 
 test('previews and the temporary server bundle are excluded from deployment', async () => {

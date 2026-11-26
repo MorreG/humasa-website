@@ -12,29 +12,19 @@ const services = [
   { icon: Cable, title: 'Infrastrukturen.', tag: 'INSTALLATION PÅ PLATS', text: 'Praktiskt installationsarbete: kabeldragning, kabelhantering och uppbyggnad av kompletta IT-miljöer hos kunderna.' },
 ];
 
-function PatchPanel() {
+function BeforeAfterPhotos() {
   return (
-    <div className="tech-patch" aria-hidden="true">
-      <div className="tech-patch-top"><span>HUMÅSA / FIELD NOTES</span><span>01—12</span></div>
-      <svg viewBox="0 0 440 380" fill="none">
-        <defs><pattern id="tech-grid" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="currentColor" opacity=".2" /></pattern></defs>
-        <rect width="440" height="380" fill="url(#tech-grid)" />
-        {[68, 158, 248, 338].map((x, index) => (
-          <g key={x} stroke="currentColor">
-            <rect x={x - 24} y="40" width="48" height="38" rx="3" />
-            <path d={`M${x - 12} 49v12h24V49M${x - 8} 61v8h16v-8`} />
-            <text x={x} y="27" fill="currentColor" stroke="none" textAnchor="middle" fontSize="9" fontFamily="monospace">0{index + 1}</text>
-          </g>
-        ))}
-        <g stroke="currentColor" strokeWidth="5" strokeLinecap="round">
-          <path d="M68 78v68c0 60 180 20 180 90v64" />
-          <path d="M158 78v42c0 80-90 70-90 146v34" opacity=".35" />
-          <path d="M248 78v48c0 68 90 70 90 138v36" />
-          <path d="M338 78v20c0 100-180 70-180 160v42" opacity=".35" />
-        </g>
-        {[68, 158, 248, 338].map(x => <g key={x} fill="currentColor"><rect x={x - 13} y="300" width="26" height="36" rx="3" /><circle cx={x} cy="360" r="3" /></g>)}
-      </svg>
-      <div className="tech-patch-bottom"><span>FRÅN KABEL TILL KUNDKONTAKT</span><span>↗</span></div>
+    <div className="tech-comparison" role="group" aria-label="Bilder från Techtrade-uppdraget">
+      <figure className="tech-comparison-panel tech-comparison-before">
+        <div className="tech-comparison-image">
+          <img src={asset('IMG/TT-3.webp')} alt="Nätverksskåp med patchpaneler, switch och kablage" width="3024" height="4032" />
+        </div>
+      </figure>
+      <figure className="tech-comparison-panel tech-comparison-after">
+        <div className="tech-comparison-image">
+          <img src={asset('IMG/TT-header.webp')} alt="Dator och nätverkskablar på en arbetsplats" width="3024" height="4032" />
+        </div>
+      </figure>
     </div>
   );
 }
@@ -51,14 +41,14 @@ export default function Techtrade() {
             <p className="tech-hero-copy">Bakom varje arbetsdag.<br />Under varje skrivbord.<br /><strong>IT som håller ihop.</strong></p>
             <a className="case-link" href="#uppdraget">Utforska uppdraget <ArrowDown size={18} /></a>
           </div>
-          <PatchPanel />
+          <BeforeAfterPhotos />
         </div>
         <div className="tech-hero-meta case-eyebrow"><span>KUNDKONTAKT</span><span>WINDOWS</span><span>NÄTVERK</span><span>INSTALLATION</span></div>
       </section>
 
       <section id="uppdraget" className="tech-intro case-pad">
-        <div className="tech-tenure"><strong>12</strong><span className="case-eyebrow">MÅNADER SOM IT-TEKNIKER</span></div>
-        <div><p className="case-eyebrow">01 / UPPDRAGET</p><h2>Teknik på riktigt.<br />Varje dag.</h2><p>Under ett år som konsult hos Techtrade har jag arbetat nära både kunder och deras IT-miljöer. Från den dagliga driften till utveckling och installation på plats.</p><p>Ett brett uppdrag där kundrelationer, system och det praktiska hantverket möts. I samtalet om en ny dator. I en Windowsmiljö som ska utvecklas. Och i kablarna som kopplar ihop allt.</p></div>
+        <div className="tech-tenure"><strong>12<span>+</span></strong><span className="case-eyebrow">MÅNADER SOM IT-TEKNIKER</span></div>
+        <div><p className="case-eyebrow">01 / UPPDRAGET</p><h2>Teknik på riktigt.<br />Varje dag.</h2><p>Under ett år som egen konsult via Humåsa har jag arbetat nära både kunder och deras IT-miljöer. Från den dagliga driften till utveckling och installation på plats.</p><p>Ett brett uppdrag där kundrelationer, system och drift möts. Det handlar om felsökning, driftsätta nya kunder och vidare utveckling av befintliga kunder och deras IT-miljö.</p></div>
       </section>
 
       <figure className="tech-photo">
@@ -87,7 +77,15 @@ export default function Techtrade() {
         </div>
       </section>
 
-      <section className="tech-outro case-pad"><p className="case-eyebrow">TEKNIKEN ÄR HALVA JOBBET.</p><h2>Resten handlar<br />om <em>människor.</em></h2><p>Att få tekniken att fungera börjar med att förstå dem som använder den. Det är den inställningen jag tar med mig till varje uppdrag.</p><Link className="case-link" to="/about#contact">Prata IT med mig <ArrowUpRight size={22} /></Link></section>
+      <section className="tech-outro case-pad">
+        <div className="tech-outro-copy">
+          <p className="case-eyebrow">TEKNIKEN ÄR HALVA JOBBET.</p>
+          <h2>Resten handlar<br />om <em>människor.</em></h2>
+          <p>Att få tekniken att fungera börjar med att förstå dem som använder den. Det är den inställningen jag tar med mig till varje uppdrag.</p>
+          <Link className="case-link" to="/about#contact">Prata IT med mig <ArrowUpRight size={22} /></Link>
+        </div>
+        <img className="tech-outro-portrait" src={asset('IMG/profile2.webp')} alt="Mårten Andreasson, Humåsa" width="6000" height="4000" loading="lazy" decoding="async" />
+      </section>
       <NextProject currentProject="/techtrade" />
     </main>
   );
